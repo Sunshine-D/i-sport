@@ -63,6 +63,8 @@ Contract conformance: prd_contract: v1（结构检查通过；不代表产品验
 
 ## 续跑入口
 
+个人自用补充：commit `f4744c7addcd3686bcece35e13909e8b06f90664` 的 [构建36855896887](https://github.com/Sunshine-D/i-sport/actions/runs/36855896887)全部通过，包括完整版与 `SELF_USE_BASIC` 基础版的未签名 arm64 编译、两个 IPA 打包和 artifact 上传。基础版编译条件下不构造 HKHealthStore、不访问 HealthKit；完整版仍保留健康实现。打包器使用临时 .app 验证 Payload 结构并拒绝模拟器平台输入。签名、iOS 27 安装、照片/钥匙串与真实 AI 尚未真机验证。
+
 最新结果：下述无 Mac 补充与“未执行”说明保留初始阶段记录；GitHub 首次构建现已成功，详见上文云端更新与 evidence/cloud-build.txt。`verify-mac.sh` 已在 macos-26 runner 执行通过；签名与真机测试尚未执行。
 
 2026-10-01 无 Mac 补充：提供 docs/NO-MAC.md、手动触发的 GitHub macOS 未签名编译配置，以及可选 LAN 静态预览。Node 服务器语法检查通过，24 项领域测试与工程静态检查复验通过；Windows 本机访问 `http://10.167.4.116:4174/` 的 LAN 服务返回 HTTP 200。未在用户 iPhone / iPad 上验证网络可达性或 Safari 行为。GitHub workflow 尚未运行，没有签名、上传或安装结果。此处验收只涉及本地服务配置，完整产品状态不变。

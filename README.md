@@ -12,6 +12,8 @@
 
 ## 没有 Mac：iPhone / iPad 交付
 
+最新使用偏好：仅个人使用，以 iPhone 为主，暂不购买苹果会员或走 App Store / TestFlight。构建会提供未签名基础自用版与完整健康版，须在 Windows 本地签名后尝试安装；具体步骤与限制见 [`docs/SELF-USE.md`](docs/SELF-USE.md)。基础版关闭 HealthKit，但保留原需求供后续验证，不承诺已完成免费账号签名或 iOS 27 真机安装。
+
 不需要购买 Mac。先执行 `node scripts/preview-server.mjs --lan --port=4174`，用同一 Wi-Fi 下的 iPhone / iPad Safari 打开终端列出的局域网地址，查看交互预览。
 
 原生交付采用云端 macOS 编译与 TestFlight 安装。已连接公开仓库 https://github.com/Sunshine-D/i-sport 。`.github/workflows/ios-build.yml` 在 main 分支推送时自动执行，也可手动触发，进行未签名编译检查；签名与 TestFlight 上传尚未实现。详细条件与步骤见 [`docs/NO-MAC.md`](docs/NO-MAC.md)。预览与未签名编译产物都不是可安装的原生 App。

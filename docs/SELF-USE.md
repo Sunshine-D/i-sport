@@ -2,6 +2,8 @@
 
 当前用途为个人 iPhone 使用，iPad 次要。不准备 App Store / TestFlight 分发，不要求先购买 Apple Developer Program 会员。
 
+首轮结果：[自用包构建](https://github.com/Sunshine-D/i-sport/actions/runs/36855896887)已成功，基础版和完整版都通过未签名设备编译，Artifacts 中提供 `LightMeal-unsigned-self-use`。打包器结构检查及模拟器包拒绝检查通过。实际 AltStore 签名和 iPhone 安装尚未执行。
+
 云端构建现在生成两个未签名包：
 
 - `LightMeal-basic-unsigned.ipa`：独立基础自用构建，保留原生相机、用户配置的真实视觉请求、钥匙串和本机历史；编译时关闭 HealthKit 调用与签名能力。用于优先验证免费账号的安装和基础流程，不能当作完整健康同步版本。

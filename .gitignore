@@ -15,3 +15,5 @@ build/
 *.developerprofile
 *.pem
 *.key
+__pycache__/
+*.pyc
