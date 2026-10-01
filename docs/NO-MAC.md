@@ -1,5 +1,7 @@
 # 没有 Mac：iPhone / iPad 使用与交付路径
 
+最新状态（2026-10-01）：项目已上传公开仓库 Sunshine-D/i-sport；[首次云端构建](https://github.com/Sunshine-D/i-sport/actions/runs/36850506933)全部通过。24项 Node 测试、7项 Swift 测试、模拟器与未签名设备编译成功，使用 Xcode 26.6 / SDK 26.5。main 推送与手动触发均可构建。下文首次上传前的未运行描述为历史记录；签名、iOS 27 SDK 与真机验证仍未完成。
+
 用户设备约束：Windows 开发环境，有 iPhone 和 iPad，没有自有 Mac。后续交付不要求用户购买 Mac。当前状态仍为 PARTIAL：没有已签名的安装包。已上传公开仓库 Sunshine-D/i-sport 并触发首次云端编译，结果见仓库 Actions。
 
 ## 先在手机和平板看效果

@@ -1,0 +1,12 @@
+Run: https://github.com/Sunshine-D/i-sport/actions/runs/36850506933
+Commit: 4d1def53182b414b05a888c8ce34a206305aefc8
+Runner: macos-26
+Xcode: 26.6 (17F113)
+SDK: iphonesimulator26.5 / iphoneos26.5
+Node domain tests: 24 passed
+Swift XCTest: Executed 7 tests, 0 failures
+Simulator Debug: BUILD SUCCEEDED
+Device Release arm64, CODE_SIGNING_ALLOWED=NO: BUILD SUCCEEDED
+Job conclusion: success
+No signed IPA, app installation, real model or HealthKit execution.
+Warnings: AppIntents metadata skipped; full orientation support for iPad pending.

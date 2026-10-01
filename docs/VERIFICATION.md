@@ -50,10 +50,10 @@ Contract conformance: prd_contract: v1（结构检查通过；不代表产品验
 
 原生入口、SwiftUI 七页面、照片选择/相机桥接、密钥钥匙串、HTTPS 视觉请求、校验与本机原子持久化、按日期历史、编辑比例、导出/导入文本、健康授权、今日健康查询、膳食能量版本写入及删除已接入调用路径。
 
-下面全部 **NOT RUN**：
+2026-10-01 云端构建更新：commit `4d1def53182b414b05a888c8ce34a206305aefc8`，标准 macos-26 runner，Xcode 26.6 / SDK 26.5。24项 Node 测试、7项 Swift XCTest、Debug 模拟器编译及 Release 未签名 arm64 设备编译全部通过。[构建日志](https://github.com/Sunshine-D/i-sport/actions/runs/36850506933)，摘要见 evidence/cloud-build.txt。没有签名、安装或运行模拟器 App，未使用 iOS 27 SDK。构建有 AppIntents 元数据提示与 iPad 全方向支持警告，待后续适配。
 
-- `cd ios && swift test`：当前 Windows 未安装 Swift。
-- `xcodebuild ... build`：当前 Windows 无 Xcode/macOS SDK。
+下面仍为 **NOT RUN**：
+
 - 真机相机、照片权限、Keychain、持久化重启与文件保护。
 - 用户提供真实视觉服务配置后的餐食识别（没有凭据，不发送请求、不扣费）。
 - HealthKit 读取、样本更新防重与删除；需正确 Team/HealthKit capability 和真机。
@@ -62,6 +62,8 @@ Contract conformance: prd_contract: v1（结构检查通过；不代表产品验
 未实现/未接通：多图同餐、历史体重/消耗曲线、每个健康类型独立授权 UI、小米减重每餐自动写入、完整历史 iCloud 多端、端侧离线视觉模型。日记可以调整食物但尚未支持已保存餐次/日期的重新编辑；记录时可设置餐次日期。设计中的完整数据来源和功能不能视作全部交付。
 
 ## 续跑入口
+
+最新结果：下述无 Mac 补充与“未执行”说明保留初始阶段记录；GitHub 首次构建现已成功，详见上文云端更新与 evidence/cloud-build.txt。`verify-mac.sh` 已在 macos-26 runner 执行通过；签名与真机测试尚未执行。
 
 2026-10-01 无 Mac 补充：提供 docs/NO-MAC.md、手动触发的 GitHub macOS 未签名编译配置，以及可选 LAN 静态预览。Node 服务器语法检查通过，24 项领域测试与工程静态检查复验通过；Windows 本机访问 `http://10.167.4.116:4174/` 的 LAN 服务返回 HTTP 200。未在用户 iPhone / iPad 上验证网络可达性或 Safari 行为。GitHub workflow 尚未运行，没有签名、上传或安装结果。此处验收只涉及本地服务配置，完整产品状态不变。
 

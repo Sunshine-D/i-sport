@@ -4,7 +4,7 @@
 
 文档顺序：[`docs/PRD.md`](docs/PRD.md) → [`docs/API.md`](docs/API.md) → [`docs/SPEC.md`](docs/SPEC.md) → [`docs/VERIFICATION.md`](docs/VERIFICATION.md)。
 
-状态：首版源码与可运行交互预览已提供，完整产品验收仍为 PARTIAL。Windows 不提供 Xcode；原生编译、签名、相机及 HealthKit 真机验证尚未完成。浏览器预览不是 iOS 安装包。预览领域24项测试通过，工程配置检查通过；具体证据见验证记录。
+状态：首版源码与可运行交互预览已提供，完整产品验收仍为 PARTIAL。云端 Xcode 26.6 / iOS SDK 26.5 已通过模拟器与未签名设备编译、7 项 Swift 测试。签名、iOS 27 SDK 和相机/HealthKit 真机验证尚未完成。浏览器预览不是 iOS 安装包。预览领域24项测试通过，工程配置检查通过；具体证据见验证记录。
 
 ## 本机预览
 

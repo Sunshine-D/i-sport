@@ -3,6 +3,8 @@ prd_contract: v1
 ---
 # 轻食记 V2 — PRD
 
+执行状态更新（2026-10-01）：已初始化 Git 并上传用户授权的公开仓库 Sunshine-D/i-sport。[首次云端构建](https://github.com/Sunshine-D/i-sport/actions/runs/36850506933)通过24项预览领域测试、7项 Swift 测试、模拟器与未签名设备编译（Xcode 26.6 / SDK 26.5）。文中编译未运行的初始记录已被本次证据更新；相机、真实模型、HealthKit、iOS 27 与签名安装验收仍未完成，整体仍为 PARTIAL。
+
 日期：2026-10-01。Complexity: 9 → HIGH mode（10+ 文件 +3，新系统 +2，状态逻辑 +2，持久化 +1，外部接口 +1）。用户已授权文档后直接开发，不设置常规确认节点。初始开发时目录无 Git 仓库，采用本机顺序实施与可复查的检查证据；2026-10-01 已按用户授权初始化 Git 并上传公开仓库 Sunshine-D/i-sport。未运行 Linchpin 模型子进程流水线。
 
 ## Context
