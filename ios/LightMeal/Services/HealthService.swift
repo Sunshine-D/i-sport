@@ -1,6 +1,33 @@
 import SwiftUI
 import HealthKit
 
+#if SELF_USE_BASIC
+// A separate self-use build for testing signing without HealthKit entitlements.
+@MainActor final class HealthService: ObservableObject {
+    @Published var active: Double?
+    @Published var basal: Double?
+    @Published var steps: Double?
+    @Published var weight: Double?
+    @Published var heartRate: Double?
+    @Published var workouts: [HKWorkout] = []
+    @Published var error: String?
+    @Published var refreshedAt: Date?
+    @Published var busy = false
+    var available: Bool { false }
+    var minutes: Double? { nil }
+    private var unavailable: NSError { NSError(domain: "SelfUse", code: 1,
+        userInfo: [NSLocalizedDescriptionKey: "基础自用版未启用 Apple 健康；照片识别与本机记录仍可使用。"])
+    }
+    func authorize() async { error = unavailable.localizedDescription }
+    func refresh() async { }
+    func sync(_ meal: Meal, store: MealStore) async {
+        error = unavailable.localizedDescription
+        do { try store.markHealth(meal.id, version: meal.version, status: .failed, error: error) }
+        catch { self.error = error.localizedDescription }
+    }
+    func remove(_ meal: Meal) async throws { throw unavailable }
+}
+#else
 @MainActor final class HealthService: ObservableObject {
     @Published var active: Double?
     @Published var basal: Double?
@@ -108,3 +135,4 @@ import HealthKit
         if !own.isEmpty { try await health.delete(own) }
     }
 }
+#endif

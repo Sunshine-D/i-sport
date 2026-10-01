@@ -46,5 +46,23 @@ jobs:
             -derivedDataPath build/device CODE_SIGNING_ALLOWED=NO build
       - name: Explain installation status
         run: |
-          echo 'Compilation only. No signed IPA or TestFlight upload is produced.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Unsigned self-use packages only. Local signing is required; no TestFlight upload.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Camera, model service and HealthKit still need real-device verification.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Package full build (HealthKit signing needed)
+        run: python3 scripts/package-unsigned.py build/device/Build/Products/Release-iphoneos/LightMeal.app build/packages/LightMeal-health-unsigned.ipa
+      - name: Compile basic self-use build without HealthKit access
+        run: |
+          xcodebuild -project ios/LightMeal.xcodeproj -scheme LightMeal \
+            -configuration Release -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/basic CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_ENTITLEMENTS= SWIFT_ACTIVE_COMPILATION_CONDITIONS=SELF_USE_BASIC \
+            PRODUCT_BUNDLE_IDENTIFIER=com.sunshined.lightmeal.basic build
+          python3 scripts/package-unsigned.py build/basic/Build/Products/Release-iphoneos/LightMeal.app build/packages/LightMeal-basic-unsigned.ipa
+      - name: Upload packages for self-use signing tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: LightMeal-unsigned-self-use
+          path: build/packages/*.ipa
+          retention-days: 7
+          if-no-files-found: error

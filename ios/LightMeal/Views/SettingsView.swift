@@ -65,6 +65,9 @@ struct SyncSettingsView: View {
     @State private var feedback: String?
     var body: some View {
         Page(title: "数据同步") {
+            #if SELF_USE_BASIC
+            Notice(text: "基础自用构建：Apple 健康已关闭。此构建用于免费签名安装测试，完整健康版仍单独保留。")
+            #endif
             MealCard {
                 Label("Apple 健康", systemImage: "heart.fill").foregroundStyle(.pink).font(.headline)
                 Text("读取能量、步数、最近体重、心率和训练；来源以系统记录为准，不假定全部来自小米。").font(.caption).foregroundStyle(.secondary)
@@ -85,6 +88,7 @@ struct SyncSettingsView: View {
             }
             MealCard {
                 Toggle("保存后写入膳食能量", isOn: $store.settings.writeHealth)
+                    .disabled(!health.available)
                     .onChange(of: store.settings.writeHealth) { _, _ in do { try store.saveSettings() } catch { feedback = error.localizedDescription } }
                 Text("仅写入用户确认的本应用餐食。修改保持餐食 ID 与版本；失败可重试。").font(.caption).foregroundStyle(.secondary)
                 Button("重试待写入餐食") { Task {
