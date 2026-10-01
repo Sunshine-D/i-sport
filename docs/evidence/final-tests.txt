@@ -1,0 +1,158 @@
+
+> lightmeal-ios-preview@0.1.0 test
+> node --test tests/core.test.mjs
+
+TAP version 13
+# Subtest: consumed half changes actual calories and meal total
+ok 1 - consumed half changes actual calories and meal total
+  ---
+  duration_ms: 0.8553
+  type: 'test'
+  ...
+# Subtest: zero consumption is valid and remains zero
+ok 2 - zero consumption is valid and remains zero
+  ---
+  duration_ms: 0.0919
+  type: 'test'
+  ...
+# Subtest: negative and above-one fractions are rejected
+ok 3 - negative and above-one fractions are rejected
+  ---
+  duration_ms: 0.1949
+  type: 'test'
+  ...
+# Subtest: non finite quantities and kcal are rejected
+ok 4 - non finite quantities and kcal are rejected
+  ---
+  duration_ms: 0.1459
+  type: 'test'
+  ...
+# Subtest: zero negative and too-large grams are rejected
+ok 5 - zero negative and too-large grams are rejected
+  ---
+  duration_ms: 0.1744
+  type: 'test'
+  ...
+# Subtest: zero kcal is allowed but negative kcal is rejected
+ok 6 - zero kcal is allowed but negative kcal is rejected
+  ---
+  duration_ms: 0.1178
+  type: 'test'
+  ...
+# Subtest: empty name and oversized name are rejected
+ok 7 - empty name and oversized name are rejected
+  ---
+  duration_ms: 0.1496
+  type: 'test'
+  ...
+# Subtest: unknown nutrients stay unknown
+ok 8 - unknown nutrients stay unknown
+  ---
+  duration_ms: 0.1086
+  type: 'test'
+  ...
+# Subtest: known nutrients follow actual consumption
+ok 9 - known nutrients follow actual consumption
+  ---
+  duration_ms: 0.2293
+  type: 'test'
+  ...
+# Subtest: empty meal and invalid kind cannot be saved
+ok 10 - empty meal and invalid kind cannot be saved
+  ---
+  duration_ms: 0.3501
+  type: 'test'
+  ...
+# Subtest: duplicate food identity is rejected
+ok 11 - duplicate food identity is rejected
+  ---
+  duration_ms: 1.5737
+  type: 'test'
+  ...
+# Subtest: more than thirty foods are rejected
+ok 12 - more than thirty foods are rejected
+  ---
+  duration_ms: 0.1336
+  type: 'test'
+  ...
+# Subtest: repeated save updates one identity and increments version
+ok 13 - repeated save updates one identity and increments version
+  ---
+  duration_ms: 0.4284
+  type: 'test'
+  ...
+# Subtest: preview never claims real health sync
+ok 14 - preview never claims real health sync
+  ---
+  duration_ms: 0.0729
+  type: 'test'
+  ...
+# Subtest: date selection follows local calendar day
+ok 15 - date selection follows local calendar day
+  ---
+  duration_ms: 0.2046
+  type: 'test'
+  ...
+# Subtest: invalid dates are rejected
+ok 16 - invalid dates are rejected
+  ---
+  duration_ms: 0.1019
+  type: 'test'
+  ...
+# Subtest: missing date is not silently replaced with today
+ok 17 - missing date is not silently replaced with today
+  ---
+  duration_ms: 0.1158
+  type: 'test'
+  ...
+# Subtest: trend only contains dates with actual meals
+ok 18 - trend only contains dates with actual meals
+  ---
+  duration_ms: 0.1583
+  type: 'test'
+  ...
+# Subtest: out-of-range meal is excluded from trend
+ok 19 - out-of-range meal is excluded from trend
+  ---
+  duration_ms: 0.0487
+  type: 'test'
+  ...
+# Subtest: model JSON and one markdown fence can be parsed
+ok 20 - model JSON and one markdown fence can be parsed
+  ---
+  duration_ms: 0.2178
+  type: 'test'
+  ...
+# Subtest: invalid model payload does not become a successful meal
+ok 21 - invalid model payload does not become a successful meal
+  ---
+  duration_ms: 0.1469
+  type: 'test'
+  ...
+# Subtest: export and restore preserve identities and actual consumption
+ok 22 - export and restore preserve identities and actual consumption
+  ---
+  duration_ms: 0.6199
+  type: 'test'
+  ...
+# Subtest: corrupt schema and duplicate records are rejected
+ok 23 - corrupt schema and duplicate records are rejected
+  ---
+  duration_ms: 0.1291
+  type: 'test'
+  ...
+# Subtest: copy text uses consumed fraction and marks estimates
+ok 24 - copy text uses consumed fraction and marks estimates
+  ---
+  duration_ms: 0.1604
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 93.4205

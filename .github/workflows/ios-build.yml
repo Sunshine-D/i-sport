@@ -1,0 +1,50 @@
+name: Native iOS compilation (no signing)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: 'macos-26: stable SDK; xcode-27: iOS 27 SDK public preview'
+        required: true
+        default: macos-26
+        type: choice
+        options:
+          - macos-26
+          - xcode-27
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compile:
+    runs-on: ${{ inputs.runner || 'macos-26' }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Record SDK and tool versions
+        run: |
+          xcodebuild -version
+          xcodebuild -showsdks
+          swift --version
+          node --version
+          python3 --version
+      - name: Run domain checks and simulator compilation
+        run: bash scripts/verify-mac.sh
+      - name: Compile unsigned device app
+        run: |
+          xcodebuild -project ios/LightMeal.xcodeproj -scheme LightMeal \
+            -configuration Release -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/device CODE_SIGNING_ALLOWED=NO build
+      - name: Explain installation status
+        run: |
+          echo 'Compilation only. No signed IPA or TestFlight upload is produced.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Camera, model service and HealthKit still need real-device verification.' >> "$GITHUB_STEP_SUMMARY"

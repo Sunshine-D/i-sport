@@ -1,0 +1,12 @@
+{
+  "name": "lightmeal-ios-preview",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local interaction preview accompanying a native iOS project",
+  "scripts": {
+    "dev": "node scripts/preview-server.mjs",
+    "test": "node --test tests/core.test.mjs",
+    "check": "node --check preview/app.mjs && python scripts/check-project.py",
+    "generate:ios": "python scripts/generate-project.py"
+  }
+}

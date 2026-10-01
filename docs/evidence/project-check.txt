@@ -1,0 +1,1 @@
+PASS project wiring/config: 14 sources. Swift compilation NOT RUN.

@@ -1,0 +1,237 @@
+TAP version 13
+# Subtest: consumed half changes actual calories and meal total
+not ok 1 - consumed half changes actual calories and meal total
+  ---
+  duration_ms: 1.2409
+  type: 'test'
+  location: 'D:\\Project\\iphone-sport\\tests\\core.test.mjs:7:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    175 !== 87.5
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 87.5
+  actual: 175
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/Project/iphone-sport/tests/core.test.mjs:7:73)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: zero consumption is valid and remains zero
+not ok 2 - zero consumption is valid and remains zero
+  ---
+  duration_ms: 0.2696
+  type: 'test'
+  location: 'D:\\Project\\iphone-sport\\tests\\core.test.mjs:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    175 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 175
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/Project/iphone-sport/tests/core.test.mjs:8:62)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: negative and above-one fractions are rejected
+ok 3 - negative and above-one fractions are rejected
+  ---
+  duration_ms: 0.214
+  type: 'test'
+  ...
+# Subtest: non finite quantities and kcal are rejected
+ok 4 - non finite quantities and kcal are rejected
+  ---
+  duration_ms: 0.1512
+  type: 'test'
+  ...
+# Subtest: zero negative and too-large grams are rejected
+ok 5 - zero negative and too-large grams are rejected
+  ---
+  duration_ms: 0.1699
+  type: 'test'
+  ...
+# Subtest: zero kcal is allowed but negative kcal is rejected
+ok 6 - zero kcal is allowed but negative kcal is rejected
+  ---
+  duration_ms: 0.0842
+  type: 'test'
+  ...
+# Subtest: empty name and oversized name are rejected
+ok 7 - empty name and oversized name are rejected
+  ---
+  duration_ms: 0.1396
+  type: 'test'
+  ...
+# Subtest: unknown nutrients stay unknown
+ok 8 - unknown nutrients stay unknown
+  ---
+  duration_ms: 0.0868
+  type: 'test'
+  ...
+# Subtest: known nutrients follow actual consumption
+ok 9 - known nutrients follow actual consumption
+  ---
+  duration_ms: 0.2155
+  type: 'test'
+  ...
+# Subtest: empty meal and invalid kind cannot be saved
+ok 10 - empty meal and invalid kind cannot be saved
+  ---
+  duration_ms: 0.3381
+  type: 'test'
+  ...
+# Subtest: duplicate food identity is rejected
+ok 11 - duplicate food identity is rejected
+  ---
+  duration_ms: 1.3274
+  type: 'test'
+  ...
+# Subtest: more than thirty foods are rejected
+ok 12 - more than thirty foods are rejected
+  ---
+  duration_ms: 0.1342
+  type: 'test'
+  ...
+# Subtest: repeated save updates one identity and increments version
+not ok 13 - repeated save updates one identity and increments version
+  ---
+  duration_ms: 0.298
+  type: 'test'
+  location: 'D:\\Project\\iphone-sport\\tests\\core.test.mjs:19:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    175 !== 87.5
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 87.5
+  actual: 175
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/Project/iphone-sport/tests/core.test.mjs:19:229)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: preview never claims real health sync
+ok 14 - preview never claims real health sync
+  ---
+  duration_ms: 0.5722
+  type: 'test'
+  ...
+# Subtest: date selection follows local calendar day
+ok 15 - date selection follows local calendar day
+  ---
+  duration_ms: 0.2301
+  type: 'test'
+  ...
+# Subtest: invalid dates are rejected
+ok 16 - invalid dates are rejected
+  ---
+  duration_ms: 0.0565
+  type: 'test'
+  ...
+# Subtest: missing date is not silently replaced with today
+ok 17 - missing date is not silently replaced with today
+  ---
+  duration_ms: 0.0529
+  type: 'test'
+  ...
+# Subtest: trend only contains dates with actual meals
+ok 18 - trend only contains dates with actual meals
+  ---
+  duration_ms: 0.1289
+  type: 'test'
+  ...
+# Subtest: out-of-range meal is excluded from trend
+ok 19 - out-of-range meal is excluded from trend
+  ---
+  duration_ms: 0.0456
+  type: 'test'
+  ...
+# Subtest: model JSON and one markdown fence can be parsed
+ok 20 - model JSON and one markdown fence can be parsed
+  ---
+  duration_ms: 0.2332
+  type: 'test'
+  ...
+# Subtest: invalid model payload does not become a successful meal
+ok 21 - invalid model payload does not become a successful meal
+  ---
+  duration_ms: 0.1447
+  type: 'test'
+  ...
+# Subtest: export and restore preserve identities and actual consumption
+ok 22 - export and restore preserve identities and actual consumption
+  ---
+  duration_ms: 0.5949
+  type: 'test'
+  ...
+# Subtest: corrupt schema and duplicate records are rejected
+ok 23 - corrupt schema and duplicate records are rejected
+  ---
+  duration_ms: 0.1244
+  type: 'test'
+  ...
+# Subtest: copy text uses consumed fraction and marks estimates
+not ok 24 - copy text uses consumed fraction and marks estimates
+  ---
+  duration_ms: 0.3349
+  type: 'test'
+  location: 'D:\\Project\\iphone-sport\\tests\\core.test.mjs:30:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /88千卡/. Input:
+    
+    '2026-10-01 · 午餐\n米饭：约75克，175千卡\n合计约 175 千卡（估算）'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    2026-10-01 · 午餐
+    米饭：约75克，175千卡
+    合计约 175 千卡（估算）
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/Project/iphone-sport/tests/core.test.mjs:30:160)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 20
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 95.5883
+
+RED observed: consumed fraction disabled; exit: 1
