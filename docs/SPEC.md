@@ -46,7 +46,7 @@ Application Support/LightMeal 下存 meals.json 与照片；路径仅使用内�
 
 ## 验证
 
-无自有 Mac 路线：`.github/workflows/ios-build.yml` 仅 workflow_dispatch，默认 macos-26，允许选择 xcode-27 公开预览 runner。执行 verify-mac.sh 与未签名 iphoneos build；只读仓库权限，没有签名 secrets 或部署步骤，没有安装包产出。构建环境不是业务后台，云端与真机验收状态分别记录。`preview-server.mjs --lan --port=4174` 可选择同网访问静态预览，默认仍仅本机4173；不能因此认定跨端同步或 HealthKit 已实现。
+无自有 Mac 路线：`.github/workflows/ios-build.yml` main 推送与 workflow_dispatch 均可触发，默认 macos-26，允许选择 xcode-27 公开预览 runner。执行 verify-mac.sh 与未签名 iphoneos build；只读仓库权限，没有签名 secrets 或部署步骤，没有安装包产出。构建环境不是业务后台，云端与真机验收状态分别记录。`preview-server.mjs --lan --port=4174` 可选择同网访问静态预览，默认仍仅本机4173；不能因此认定跨端同步或 HealthKit 已实现。
 
 Node 内置 test 验证真实预览领域模块：边界、有限值、比例、总营养缺失、UUID 去重、跨日、无记录留空、schema 与导出。突变计算检查证明测试会失败。Python 项目检查覆盖源文件引用、Info.plist 权限、签名能力、入口与 scheme。Swift XCTest 定义同类领域/解析测试，当前系统不能执行。Mac 运行 swift test 与 xcodebuild，再真机验相机、真实模型、HealthKit、重启持久化。
 

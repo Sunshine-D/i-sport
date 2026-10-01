@@ -1,6 +1,6 @@
 # 没有 Mac：iPhone / iPad 使用与交付路径
 
-用户设备约束：Windows 开发环境，有 iPhone 和 iPad，没有自有 Mac。后续交付不要求用户购买 Mac。当前状态仍为 PARTIAL：没有已签名的安装包，也没有已运行的云端构建。
+用户设备约束：Windows 开发环境，有 iPhone 和 iPad，没有自有 Mac。后续交付不要求用户购买 Mac。当前状态仍为 PARTIAL：没有已签名的安装包。已上传公开仓库 Sunshine-D/i-sport 并触发首次云端编译，结果见仓库 Actions。
 
 ## 先在手机和平板看效果
 
@@ -20,14 +20,14 @@ node scripts/preview-server.mjs --lan --port=4174
 
 选择这条路径以保留原生相机、模型调用、钥匙串和 HealthKit。云端 Mac 只负责编译；正式 App 的本地数据与模型调用不经过这个构建环境。
 
-已准备 `.github/workflows/ios-build.yml`，只有手动触发，不在每次提交时自动消耗构建额度。需要代码进入自己的 GitHub 仓库后，在 Actions 选择 “Native iOS compilation (no signing)” 并 Run workflow：
+已准备 `.github/workflows/ios-build.yml`，在 main 分支推送时自动触发，也可以手动选择 runner。需要代码进入自己的 GitHub 仓库后，在 Actions 选择 “Native iOS compilation (no signing)” 并 Run workflow：
 
 - 默认 `macos-26`：用 runner 的默认稳定 SDK 编译现有稳定 API。
 - 可选 `xcode-27`：官方公开预览 runner，用于 iOS 27 SDK 编译；实际可用性以 GitHub 为准。
 - 执行工程生成、静态检查、24 项浏览器领域测试、Swift 领域测试、模拟器与未签名设备编译；工具版本写入日志。
 - 它只验证源码能否编译，不产生可以安装的 IPA。执行成功也不等于相机、真实识别、HealthKit 或 iOS 27 真机验收通过。
 
-当前没有关联 GitHub 仓库或远程构建权限，故未上传源码、未触发构建。私有仓库的 macOS 构建使用账号额度，超额可能计费；查看账号配额和预算后再运行，不承诺免费。
+用户已授权上传公开仓库 Sunshine-D/i-sport；首次 main 推送已触发构建。公开仓库的标准 GitHub 托管 runner 构建免费；若将来改为私有仓库，须检查账号额度与预算。
 
 ### 从编译到可安装版本还需要什么
 
